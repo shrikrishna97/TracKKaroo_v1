@@ -152,8 +152,8 @@ In log tracker page for the repective tracker type if user selects delete button
 #### Creator
 
 - **Name : Shri Krishna Pandey**
-- **Roll Number : 21f1006966**
-- **Student Email : 21f1006966@student.onlinedegree.iitm.ac.in**
+- **Roll Number : 
+- **Student Email : 
 
 ####  Thanks
 
