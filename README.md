@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="TracKKaroo\static\logo.jpg" alt=" logo" width="200" height="165"> 
+<img src="TracKKaroo\static\logo.jpg" alt=" logo" width="200" height="165"> <br>
 <u>TracK Karoo </u>
 </h1>
 
