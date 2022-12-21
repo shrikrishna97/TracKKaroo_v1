@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %} {% block head %}
+ <!--<header>
+    <div id="top-header">
+             
+        
+        <div id="logo"> 
+            <img src="/static/header.png" alt="Circumplex" width=100% height=100% >
+        </div>   -->
+<section style="background-image:url(/static/header.png);background-size: cover;background-repeat: no-repeat">
+<h1 style="font-style: bold;font-family:'Courier New';font-size:50px;color:rgb(80, 82, 172); text-align:left;"><em> &emsp13; &#160;TracK Karoo</em></h1>
+
+
+{% endblock %} {% block body %}
+   
+        <div class="ui container">
+            <div style="text-align:center">
+               
+                <h1 ><b>Welcome To TracK Karoo!</b></h1>
+            </div>
+                <br>
+                <p><h4 style="text-align: center;color:brown;font-size:large;font-family:Verdana;"> The quantified self (QS) is any individual engaged in the self-tracking of any kind of biological, physical, behavioral, or environmental information. 
+                    There is a proactive stance toward obtaining information and acting on it. A variety of areas may be tracked and analyzed, for example, weight, energy level, mood, time usage, sleep quality, health, cognitive performance, athletics, and learning strategies. 
+                    Health is an important but not exclusive focus, where objectives may range from general tracking to pathology resolution to physical and mental performance enhancement.</h4>
+                    <h3 style="font-size: medium;font-style: oblique; color:black;">So, this is a small help from my end to your betterment.Use this webapp to <span style="color:blue">tracker your habbits</span>.</h3></p>
+
+                <p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+            
+                        <img src="\static\1.png" alt="Circumplex" width="300px" height="300px" > 
+                    
+                        <img src="\static\logo.jpeg" alt="Circumplex" width="300px" height="300px" >
+                   <br>
+                   <br>
+                    <div>
+                            <button class="ui  button" > <a href='/login' style="font-size:20px;">Login</a> </button>
+                            <button class="ui  button"><a href='/sign_up' style="font-size:20px;">Sign Up</a></button>
+                    </div>
+                </p>
+            </div>
+        </div>
+
+{% endblock %}
+

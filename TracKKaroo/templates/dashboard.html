@@ -1,0 +1,69 @@
+<section style="background-image: url(/static/158867.jpg);background-size:100%;">
+{% extends 'base.html' %} {% block head %}
+    <title>Dashboard</title>
+      <div class="ui fixed borderless menu" style="background-color: #00006d;">
+        <h4 style="color:rgb(231, 181, 181);font-size: 2rem;font-style:Italic"> TracK Karoo</h4>
+        <div class="right menu">
+      <button class="ui   button" type="submit"><a href='/'>Home</a></button>
+      <button class="ui  button" type="submit"><a href='/logout'>Logout</a></button>
+        </div>
+    </div><br>
+    {% endblock %} 
+   
+    {% block body %} 
+    <br>
+        <h1 style="font-style: bold;"> Hello <span style="color: rgb(143, 70, 70);"> {{username}} !</span></h1>
+      
+        <h3 style="text-align: center">Welcome <span style="color: rgb(143, 70, 70);">{{username}} </span> to <span style="color: rgb(205, 53, 23);">TracK Karoo.</span></h3>
+        <p style="text-align: center;font-family:verdana;font-size:large">  <br>
+        Many aspects of our lives can be quantified into parameters, our weight and sport activities among others. 
+        Tracking such parameters can be key to awareness, improvement over time, reaching your goals and changing your habits. 
+        This is why we have created Quantified Self, Quantified Self allows you to log values over time and then view them in a multitude of graphs, statistics and aggregations. </p>
+     <form>
+        <!-- CREATE TRACKER -->
+        <button class="ui  button is-success" type="button"><a href="/{{username}}/create_tracker">Add Tracker</a></button> 
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+    </form>
+
+    <br>
+    {%if tracks|length <1 %}
+    <h4 style="text-align:center;font-style: italic;">There are no trackers. Create one !!</h4>
+    {%else%}
+    <div class="ui container">
+        
+        <table class="ui celled table">
+            <tr style="text-align:center;font-size: x-large;">
+                <th style="text-align:center">Tracker</th>
+                <th style="text-align:center">Last Tracked</th>
+                <th style="text-align:center">Tracker Type</th>
+                <th style="text-align:center">Add</th>
+                <th style="text-align:center">Actions</th>
+            </tr>
+            {%for tracker in tracks %}
+            <tr style="text-align:center;font-size:large;font-style:oblique;border: 3px solid rgb(192, 176, 176)">
+                <td>{{tracker.name}}</td>
+                <td>{{tracker.date_created.date()}}</td>
+                <td>{{tracker.tracker_type}}</td>
+                {%if tracker.tracker_type=='Numeric'%}
+                <td><button class="ui button" type="button"><a href="/{{username}}/{{tracker.id}}/logs">Add logs</a></button></td>
+                {%elif tracker.tracker_type=='Boolean'%}
+                <td><button class="ui button" type="button"><a href="/{{username}}/{{tracker.id}}/logs">Add logs</a></button></td>
+                {%elif tracker.tracker_type=='Multiple Choice'%}
+                <td><button class="ui button" type="button"><a href="/{{username}}/{{tracker.id}}/logs">Add logs</a></button></td>
+                {%endif%}
+                <td><a class="ui red button" href="/{{username}}/{{tracker.id}}/delete">Delete</a>
+            
+                    <a class="ui green button" href="/{{username}}/update/{{tracker.id}}">Update</a>
+
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+        {%endif%}
+    </div>
+
+
+{%endblock%}
+</section>

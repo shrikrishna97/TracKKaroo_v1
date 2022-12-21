@@ -1,0 +1,51 @@
+{% extends "base1.html" %} {% block title %}Signup{% endblock %} {% block content %} 
+
+  <section class="vh-100 gradient-custom"
+  style="background-image: url(/static/background.jpg);background-size: cover;background-repeat: repeat">   
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5" style="font-size: 1.3rem;">
+                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+  
+                <form method="POST">
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="firstname">Your Name</label>
+                    <input type="text" id="firstname" name="name" class="form-control form-control-lg" placeholder="Enter your name here.." />
+                  </div>
+  
+                  <!-- <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Your Email</label>
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                  </div> -->
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="password">Username </label>
+                    <input type="text" id="firstname" name= "username" class="form-control form-control-lg" placeholder="Create a Username"/>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="password2">Password</label>
+                    <input type="password" id="password1" name="password" class="form-control form-control-lg" placeholder="Create a Password" />
+                  </div>
+                  {{info}}
+                  
+  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class=" btn btn-primary btn-lg ">Register</button>
+                  </div>
+  
+                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login " class="text-dark-50 fw-bold"><u>Login here</u></a> <br>  <a href="/ " class="text-dark-50 fw-bold"><u>Home Page</u></a></p>
+  
+                </form>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

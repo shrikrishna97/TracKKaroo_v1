@@ -1,0 +1,72 @@
+<section style="background-image: url(/static/innerpage.jpg);background-size: cover;background-repeat: no-repeat"></section>
+{% extends 'base.html' %} {% block head %}
+
+
+ <title>Create_tracker</title>
+<!-- <h1 style="font-style: bold;font-family:'Courier New';font-size:50px;color:rgb(80, 82, 172); text-align:left;"><em> &emsp13; &#160;TrAcK KaRooo</em></h1> -->
+<div class="ui fixed borderless menu" style="background-color: #00006d;">
+    <h4 style="color:rgb(231, 181, 181);font-size: 2rem;font-style:Italic"> Track Karoo</h4>
+    <div class="right menu">
+  <button class="ui   button" type="submit"><a href='/'>Home</a></button>
+  <button class="ui   button" type="submit"><a href='/{{username}}/dashboard'>Back</a></button>
+  <button class="ui  button" type="submit"><a href='/logout'>Logout</a></button>
+    </div>
+</div><br>
+  <!-- <div class="ui fixed borderless menu">
+    
+  <button class="ui  button" type="submit"><a  href='/{{username}}/dashboard'>Home</a></button>
+  <button class="ui  button" type="submit"><a href='/logout'>Logout</a></button>
+</div> -->
+ <!-- <script type="type/javascript">
+     function selector(){
+         const opt = ["Numeric","Multiple Choice","Boolean"]
+         const html = function getDropdown(opt) {
+            console.log(countries);
+          let  a = `<option value="">Please select</option>`
+        countries.forEach(function(c){
+            a += `<option value="${c.toLowerCase()}">${c}</option>`});
+        return a;
+        };
+         const select = document.querySelector("#type");
+        select.innerHTML = html;
+     }
+ </script> -->
+
+{% endblock %} {% block body %}
+
+<br>
+<h2 style="font-style: bold">Hey <span style="color: rgb(143, 70, 70);">{{username}}, </span> Create Your Tracker Here. </h2>
+<br>
+{{ str }}
+<div class="ui container">
+<form class="ui form" method="POST" , action="/{{username}}/create_tracker">
+    <div class=" field">
+    <label style="font-style: oblique;font-size: large;">Tracker Name:</label>
+    <input type="text" id="name" name="_name_" required></div><br>
+    <div class=" field">
+    <label style="font-style: oblique;font-size: large;">Tracker Description:</label>
+    <textarea id="description" name="_description_"> </textarea> </div><br>
+    <!-- <div class=" field" onload="selector()"> -->
+    <div class="field">
+    <label style="font-style: oblique;font-size: large;">Tracker Type:</label>
+    <select id="type" name="_type_"><br>
+        <option>Numeric</option>
+        <option>Multiple Choice</option>
+        <option>Boolean</option>
+    </div>
+    <br>
+    <div class=" field">
+    <label for="settings">Settings</label>
+    <input type="text" class="form-control" id="settings" name="_setting_" maxlength="100"
+           placeholder="Enter your setting for Multiple choose tracker type enter value seperated by ,(Comma) Example(A,B,C,D)">
+        </div>
+    
+
+    <input class="ui button" type="submit" value="Create">
+</form>
+</div>
+
+
+    </div>
+{% endblock %}
+</section>

@@ -1,0 +1,92 @@
+
+{% extends 'base.html' %} {% block head %}
+
+<section style="background-image: url(/static/innerpage.jpg);background-size: cover;background-repeat: no-repeat"></section>
+<title>Update_log</title>
+<div class="ui fixed borderless menu" style="background-color: #00006d;">
+    <h4 style="color:rgb(231, 181, 181);font-size: 2rem;font-style:Italic"> Track Karoo</h4>
+    <div class="right menu">
+  <button class="ui   button" type="submit"><a href='/{{username}}/dashboard'>Home</a></button>
+  <button class="ui   button" type="submit"><a href='/{{username}}/{{tracker_id}}/logs'>Back</a></button>
+ 
+  <button class="ui  button" type="submit"><a href='/logout'>Logout</a></button>
+    </div>
+</div><br>
+<br> 
+<br>
+{% endblock %} {% block body %}
+<h2>Update  your log here,<span style="color: rgb(143, 70, 70);"> {{username}} !</span> </h2>
+
+
+{%if log.log=='Numeric'%}
+<div class="ui container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+<form class="ui form" method="post", action="/{{username}}/{{tracker_id}}/{{log.id}}/update">
+    <div class=" field">
+    <p><label style="font-style: oblique;font-size: large;">Value</label>  <input type="number" id="value" name="_value_" value="{{ log.value }}"> </p>
+</div>
+    <div class=" field">
+    <p><label style="font-style: oblique;font-size: large;">Note</label> <input type="text" name="_note_" value="{{ log.note }}"> </p>
+</div>
+    <p> <input class="ui button" type="submit" value="Submit" > 
+
+    <button class="ui button"><a href="/{{username}}/{{tracker_id}}/logs">Cancel</a></button>
+</p>
+</form>
+</div>
+</div>
+</div>
+{%endif%}
+
+{%if log.log=="Boolean"%}
+<div class="ui container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+<form class="ui form" method="post", action="/{{username}}/{{tracker_id}}/{{log.id}}/update">
+    <div class=" field">
+    <label style="font-style: oblique;font-size: large;">Boolean Value:</label>
+    <label>Yes</label>
+    <input type="radio" id="value" name="_value_" value="Yes" required>
+    <label>No</label>
+    <input type="radio" id="value" name="_value_" value="No">
+</div> <br>
+    <div class=" field">
+    <label style="font-style: oblique;font-size: large;">Note:</label>
+    
+    <textarea id="note" name="_note_">{{log.note}} </textarea></div> <br>
+    <p> <input class="ui button"  type="submit" value="Submit" > 
+    <button class="ui button"><a href="/{{username}}/{{tracker_id}}/logs">Cancel</a></button>
+</p>
+</form>
+</div>
+</div>
+</div>
+{%endif%}
+
+{%if log.log=='Multiple Choice'%}
+<div class="ui container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+<form class="ui form" method="post", action="/{{username}}/{{tracker_id}}/{{log.id}}/update">
+	<label>Settings:</label>
+    		<select id="value" name="_value_">{% for y in option %}
+        	<option>{{y}}</option>
+        	{%endfor%}
+    		</select><br>
+    <br><br>
+    <p id="value" name="_value_" > <h4>Choosen option:  {{ log.value}}</h4></p><br>
+    
+    <p> Note <input type="text" name="_note_" value="{{ log.note }}"> </p>
+    <p> <input class="ui button" type="submit" value="Submit" > 
+
+    <button class="ui button"><a href="/{{username}}/{{tracker_id}}/logs">Cancel</a></button>
+</p>
+</form>
+
+</div>
+</div>
+</div>
+{%endif%}
+
+{% endblock %}

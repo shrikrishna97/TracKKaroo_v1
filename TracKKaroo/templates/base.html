@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    
+    <!-- <script type="type/javascript"></script> -->
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"> 
+    {%block title%} {%endblock%}
+    
+    {% block head %}
+    <title>Dashboard</title>
+      <div class="ui fixed borderless menu" style="background-color: #00006d;">
+        <h4 style="color:rgb(231, 181, 181);font-size: 2rem;font-style:Italic"> Track Karoo</h4>
+        <div class="right menu">
+      <button class="ui   button" type="submit"><a href='/'>Home</a></button>
+      <button class="ui  button" type="submit"><a href='/logout'>Logout</a></button>
+        </div>
+    </div><br>
+    {% endblock %}
+</head>
+
+<body style="background-image:url(/static/2846337.jpg);background-size:cover;background-repeat: repeat">
+
+    {% block body %}
+   
+    {% endblock %}
+    
+    {% block footer %}
+    <br>
+    <br>
+    <br>
+    <br>
+  <p class=footer style="color:rgb(143, 70, 70)" >&copy;TracKKaro2022</p>
+{% endblock %}
+
+</body>
+
+</html>

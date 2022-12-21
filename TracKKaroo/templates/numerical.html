@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+<section style="background-image: url(/static/innerpage.jpg);background-size: cover;background-repeat: no-repeat"></section>
+{% block head %}
+
+      <div class="ui fixed borderless menu" style="background-color: #00006d;">
+        <h4 style="color:rgb(231, 181, 181);font-size: 2rem;font-style:Italic"> Track Karoo</h4>
+        <div class="right menu">
+      <button class="ui   button" type="submit"><a href='/{{username}}/dashboard'>Back</a></button>
+      <button class="ui  button" type="submit"><a href='/logout'>Logout</a></button>
+        </div>
+    </div><br>
+    <br> 
+    <br>
+    <h1> Numeric Tracker </h1><br>
+{% endblock %}
+
+{% block body %}
+<div>
+<h4><span style="color:rgb(35, 14, 73)">Description:</span> {{parent_tracker.description}}</h4>
+<h2> Add Log for your <span  style="color: #7171ce;">{{parent_tracker.name}}</span>  here,<span style="color: rgb(143, 70, 70);"> {{username}} !</span> </h2>
+<div class="ui container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+<form class="ui form" method="POST", action="/{{username}}/{{parent_tracker.id}}/logs">
+    <div class=" field">
+    <label>Numeric Value:</label>
+    <input type="number" id="value" name="_value_" placeholder="Enter your value here..." required> 
+    </div><br>
+    <div class=" field">
+    <label>Note:</label>
+    <textarea id="note" name="_note_" > </textarea></div> 
+    <input class="ui button" type="submit" value="Submit">
+</form>
+</div>
+</div>
+</div>
+
+{{ str }}
+</div>
+<br>
+<br>
+<div>
+{%if tracks|length <1 %}
+<h4 style="text-align:center">There are no logs.Create one below!!</h4>
+{%else%}
+<div class="ui container">
+    
+    <table class="ui celled table">
+        <tr style="text-align:center;font-size: x-large;">
+            
+            <th style="text-align:center">Value</th>
+            <th style="text-align:center">Note</th>
+            <th style="text-align:center">On</th>
+            <th style="text-align:center">Actions</th>
+        </tr>
+        {%for tracker in tracks %}
+        <tr>
+    
+            <td>{{tracker.value}}</td>
+            <td>{{tracker.note}}</td>
+            <td>{{tracker.timestamp.time()}} | {{tracker.timestamp.date()}}</td>
+            
+            <td><a class="ui red button" href="/{{username}}/{{parent_tracker.id}}/{{tracker.id}}/delete">Delete</a>
+        
+                <a class="ui green button" href="/{{username}}/{{parent_tracker.id}}/{{tracker.id}}/update">Update</a>
+
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    <br>
+    <div class="ui container">
+        <h1><span style="color:#00006d">Trendline of your logs.</span></h1>
+    <img src="/{{src}}">
+    </div>
+    {%endif%}
+</div>
+</div>
+
+ 
+{% endblock %}
