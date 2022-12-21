@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-image:url(/static/b1.jpeg);background-size:100%;
+    text-align: center;
+}
+.content {
+    margin-left: auto;
+    margin-right: auto;
+ }
